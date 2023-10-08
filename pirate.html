@@ -96,7 +96,6 @@
             }
             checkCount++;
             penalty++;
-            penalty = penalty < 0 ? 0 : penalty; 
             document.getElementById("locations").innerHTML =  "Number of locations checked is : " + checkCount;
             document.getElementById("penalty").innerHTML = "Penalty is : " + penalty;
             lastCheck = position;
@@ -112,17 +111,17 @@
             var coldiff = lastCheckCol - treasureCol;
             var rowdiff = lastCheckRow - treasureRow;
                 if(col || row){
-                    if((rowdiff == 1 || rowdiff == -1)||(coldiff == 1 || coldiff == -1)) {
+                    if((rowdiff == 1)||(coldiff == 1)) {
                         text = "Can Smell It";
                     }
-                    else if((rowdiff == 2 || rowdiff == -2)||(coldiff == 2 || coldiff == -2)){
+                    else if((rowdiff == 2)||(coldiff == 2)){
                         text = "Close Matie";
                     }
                     else {
                         text = "Step Faster"
                     }
                 }
-            else if((rowdiff == 1 || rowdiff == -1) && (coldiff == 1 || coldiff == -1))
+            else if((rowdiff == 1) && (coldiff == 1))
                 text = "Close Matie";
             else{
                 text = "Step Faster";
