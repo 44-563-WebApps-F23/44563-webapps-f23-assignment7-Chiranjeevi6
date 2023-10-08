@@ -25,7 +25,7 @@
 
 <body>
     <h1>Chiranjeevi Ankaiah builds a merger</h1>
-    <input type="text">
+        <input type="text" class="form-control" id="inputElement">
 		<div class="flex-container" id="target">
 		  <div class="merger">row item 1</div>   
 		  <div class="merger">row item 2</div>  
@@ -34,12 +34,14 @@
 	
 	<p> Press the button to create an new element of type div and then add it to the container.
 		</p>
-		<button onclick="addend()">Add end</button>
+		<button onclick="addEnd()">Add End</button>
+        <button onclick="addFront()">Add Front</button>
+        <button onclick="remove()">Remove</button>
 	
 	
 </body>
 <script>
-	function addend(){
+	function addEnd(){  
 		/* make the div and its text */
 		let element = document.createElement("div")        
 		element.innerHTML = document.getElementById("inputElement").value
@@ -51,5 +53,21 @@
 		container.appendChild(element)
 		
 	}
+    function remove(){
+        let queueItems = document.getElementsByClassName("merger")
+        let len_ele = queueItems.length
+        if(len_ele > 0){
+            queueItems[len_ele-1].remove()
+        }
+    }
+    function addFront() {
+      let element = document.createElement("div");
+      element.innerHTML = document.getElementById("inputElement").value;
+      element.style.color = "orange";
+      element.className = "merger";
+
+      let container = document.getElementById("target");
+      container.insertBefore(element, container.firstChild);
+    }
 </script>
 </html>	
