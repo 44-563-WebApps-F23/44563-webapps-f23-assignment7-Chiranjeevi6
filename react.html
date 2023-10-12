@@ -10,34 +10,33 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
   <h2>speed check by Chiranjeevi Ankaiah</h2>
-  <div class="input-group-text" id="target">Your time</div><br>
-  <div class="input-group-text" id="counter">Count</div><br>
+  <div id="target">Your time</div><br>
+  <div  id="counter">Count</div><br>
   <button type="button" onclick="startTime()">Start Timer</button>
   <button type="button" onclick="recordTime()">React</button>
-</div>
 <script>
-  var rt = undefined;
+  var reactTime = undefined;
   function recordTime(){
     rt=Date.now();
-    console.log ("React time:" +rt);
+    console.log (reactTime);
   }
   
   function startTime() {
-    for(let i = 0; i < 9; i++){
+    let i=0;
+    whil(i < 9){
       setTimeout(function(){
         document.getElementById('counter').innerHTML="counter is:"+ i
       }, (8 - i) * 1000)
+      i++;
     }
     setTimeout(function(){
-      if(rt==undefined){
+      if(reactTime==undefined){
         document.getElementById("target").innerHTML="Too Slow";
       }
       else{
         let endTime=Date.now();
-        let elapsedTime= endTime - rt;
-        document.getElementById("target").innerHTML="Time was:" +elapsedTime
+        document.getElementById("target").innerHTML="Time was:" + (endTime - reactTime);
       }
     },8000)
   }
